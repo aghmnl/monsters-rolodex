@@ -18,8 +18,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.monsters.map((monster) => {
-          return <h1>{monster.name}</h1>;
+        {this.state.monsters.map((monster, key) => {
+          return <h1 key={key}>{monster.name}</h1>;
         })}
       </div>
     );
