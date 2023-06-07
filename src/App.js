@@ -5,14 +5,17 @@ class App extends Component {
   constructor() {
     super();
 
+    // inicializo el estado
     this.state = {
-      monsters: [
-        { name: "Agus", id: 1 },
-        { name: "Juan", id: 2 },
-        { name: "Nico", id: 3 },
-        { name: "Mateo", id: 4 },
-      ],
+      monsters: [],
     };
+  }
+
+  // Acción que ocurre cuando el componente App se monta (aparece por primera vez)
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => console.log(users)); // Acá se usa users porque es lo que devuelve el .json y lo llamé así
   }
 
   render() {
