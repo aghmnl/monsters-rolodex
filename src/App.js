@@ -17,10 +17,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>Hola {this.state.name.firstName}!</p>
+          <p>
+            Hola {this.state.name.firstName} {this.state.name.lastName} de{" "}
+            {this.state.company}!
+          </p>
           <button
             onClick={() => {
-              this.setState({ name: "Juan" });
+              this.setState({
+                name: { firstName: "Juan", lastName: "Gutiérrez" },
+              });
             }}
           >
             Change name
