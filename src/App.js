@@ -26,6 +26,7 @@ class App extends Component {
               this.setState({
                 name: { firstName: "Juan", lastName: "Gutiérrez" },
               });
+              console.log(this.state);
             }}
           >
             Change name
