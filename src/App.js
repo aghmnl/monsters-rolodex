@@ -9,10 +9,12 @@ class App extends Component {
     this.state = {
       monsters: [],
     };
+    console.log("1");
   }
 
   // Acción que ocurre cuando el componente App se monta (aparece por primera vez)
   componentDidMount() {
+    console.log("3");
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       // .then((users) => this.setState({ monsters: users })); // Acá se usa users porque es lo que devuelve el .json y lo llamé así
@@ -27,6 +29,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("2");
     return (
       <div className="App">
         {this.state.monsters.map((monster) => {
