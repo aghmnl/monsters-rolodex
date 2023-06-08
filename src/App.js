@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => console.log(users)); // Acá se usa users porque es lo que devuelve el .json y lo llamé así
+      .then((users) => this.setState({ monsters: users })); // Acá se usa users porque es lo que devuelve el .json y lo llamé así
   }
 
   render() {
