@@ -8,7 +8,7 @@ class App extends Component {
     // inicializo el estado
     this.state = {
       monsters: [],
-      filteredMonsters: [],
+      searchField: "",
     };
     // console.log("constructor");
   }
@@ -24,7 +24,6 @@ class App extends Component {
           () => {
             return {
               monsters: users,
-              filteredMonsters: users,
             };
           }
           // () => console.log(this.state) // Notar que lo hice con arrowFuction para poder pasar este callback y dejé comentada la línea más simple
@@ -34,6 +33,11 @@ class App extends Component {
 
   render() {
     // console.log("render");
+
+    const filteredMonsters = this.state.monsters.filter(
+      (monster) =>
+        monster.name.toLocaleLowerCase().includes(this.state.searchField) // includes es case sensitive!!
+    );
     return (
       <div className="App">
         <input
@@ -42,17 +46,13 @@ class App extends Component {
           placeholder="search monsters"
           onChange={(event) => {
             // console.log(event.target.value);
-            const searchString = event.target.value.toLocaleLowerCase();
-            const filteredMonsters = this.state.monsters.filter(
-              (monster) =>
-                monster.name.toLocaleLowerCase().includes(searchString) // includes es case sensitive!!
-            );
+            const searchField = event.target.value.toLocaleLowerCase();
             this.setState(() => {
-              return { filteredMonsters: filteredMonsters };
+              return { searchField };
             });
           }}
         />
-        {this.state.filteredMonsters.map((monster) => {
+        {filteredMonsters.map((monster) => {
           return (
             <div key={monster.id}>
               <h1>{monster.name}</h1>
