@@ -41,9 +41,11 @@ class App extends Component {
   render() {
     // console.log("render");
 
-    const filteredMonsters = this.state.monsters.filter(
-      (monster) =>
-        monster.name.toLocaleLowerCase().includes(this.state.searchField) // includes es case sensitive!!
+    const { monsters, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredMonsters = monsters.filter(
+      (monster) => monster.name.toLocaleLowerCase().includes(searchField) // includes es case sensitive!!
     );
     return (
       <div className="App">
@@ -51,7 +53,7 @@ class App extends Component {
           className="search-box"
           type="search"
           placeholder="search monsters"
-          onChange={this.onSearchChange} // No olvidar poner el this. porque está atado a la clase
+          onChange={onSearchChange} // No olvidar poner el this. porque está atado a la clase
         />
         {filteredMonsters.map((monster) => {
           return (
