@@ -1,6 +1,5 @@
 import { Component } from "react";
-// import MonsterCard from "../c/omponents/monster-card";
-
+import MonsterCard from "./monster-card";
 class CardList extends Component {
   render() {
     const { monsters } = this.props; // destructuring
@@ -8,9 +7,10 @@ class CardList extends Component {
     return (
       <div>
         {monsters.map((monster) => {
+          console.log(monster.name);
           return (
             <div key={monster.id}>
-              <h1> {monster.name}</h1>
+              <MonsterCard name={monster.name} />
             </div>
           );
         })}
