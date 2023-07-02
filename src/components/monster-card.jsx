@@ -5,7 +5,7 @@ class MonsterCard extends Component {
     const { name } = this.props;
 
     return (
-      <div>
+      <div className="card-list">
         <h1>{name}</h1>
       </div>
     );

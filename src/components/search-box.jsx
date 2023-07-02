@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "../styles/search-box.css";
 
 class SearchBox extends Component {
   render() {
