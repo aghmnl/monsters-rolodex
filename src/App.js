@@ -2,6 +2,7 @@ import { Component } from "react";
 import "./App.css";
 import CardList from "./components/cards-list";
 import SearchBox from "./components/search-box";
+import Title from "./components/title";
 
 class App extends Component {
   constructor() {
@@ -12,25 +13,19 @@ class App extends Component {
       monsters: [],
       searchField: "",
     };
-    console.log("1. constructor");
   }
 
   // Acción que ocurre cuando el componente App se monta (aparece por primera vez)
   componentDidMount() {
-    console.log("3. componentDidMount");
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      // .then((users) => this.setState({ monsters: users })); // Acá se usa users porque es lo que devuelve el .json y lo llamé así
       .then((users) =>
         // cada vez que se utiliza setState vuelve a renderizar
-        this.setState(
-          () => {
-            return {
-              monsters: users,
-            };
-          }
-          // () => console.log(this.state) // Notar que lo hice con arrowFuction para poder pasar este callback y dejé comentada la línea más simple
-        )
+        this.setState(() => {
+          return {
+            monsters: users,
+          };
+        })
       );
   }
 
@@ -42,8 +37,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("2. render");
-
     const { monsters, searchField } = this.state;
     const { onSearchChange } = this;
 
@@ -52,6 +45,7 @@ class App extends Component {
     );
     return (
       <div className="App">
+        <Title />
         <SearchBox
           onChangeHandler={onSearchChange}
           placeholder="search monsters"
