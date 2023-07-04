@@ -1,16 +1,14 @@
 import "../styles/monster-card.css";
 
-const MonsterCard = ({ name, id, email }) => {
-  return (
-    <div className="monster-card">
-      <img
-        alt={`monster ${name}`}
-        src={`https://robohash.org/${id}?set=set2&size=180x180`}
-      />
-      <h2>{name}</h2>
-      <p>{email}</p>
-    </div>
-  );
-};
+const MonsterCard = ({ name, id, email }) => (
+  <div className="monster-card">
+    <img
+      alt={`monster ${name}`}
+      src={`https://robohash.org/${id}?set=set2&size=180x180`}
+    />
+    <h2>{name}</h2>
+    <p>{email}</p>
+  </div>
+);
 
 export default MonsterCard;
