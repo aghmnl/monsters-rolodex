@@ -7,9 +7,10 @@ import reportWebVitals from "./reportWebVitals";
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  // <React.StrictMode> Comentar React.StrictMode para evitar que apareciera dos veces el console.log
-  <App />
-  // </React.StrictMode>
+  <React.StrictMode>
+    {/* Comentar React.StrictMode para evitar que apareciera dos veces el console.log a menos que se use el React Developer Tool, que lo pone en gris  */}
+    <App />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
